@@ -5,7 +5,6 @@ using namespace std;
 
 #include "interface.h"
 
-Interface::Interface()
-{
+Interface::Interface() {
 	dummy = "dummy";
 };
