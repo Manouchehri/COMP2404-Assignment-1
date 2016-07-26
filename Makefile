@@ -5,7 +5,7 @@ LDFLAGS=
 SOURCES=main.cc interface.cc
 OBJECTS=$(SOURCES:.cc=.o)
 TARGET=assignment-1
-SUBMIT_FILES=$(SOURCES) $(TARGET) README.md
+SUBMIT_FILES=$(SOURCES) $(TARGET) README.md README.txt
 
 all: $(SOURCES) $(TARGET)
 
@@ -27,6 +27,8 @@ static:
 	make
 	llc $(TARGET)
 	$(CC) -static $(TARGET).s -o $(TARGET)
+	strip --strip-all $(TARGET)
+	upx --ultra-brute $(TARGET)
 
 submission:
 	make clean
