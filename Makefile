@@ -1,13 +1,19 @@
-SOURCES=main.cc
-OBJECTS=$(SOURCES:.cc=.o)
-EXECUTABLE=assignment-1.elf
 CC=g++
 CFLAGS=-c -Wall
+LDFLAGS=
+SOURCES=main.cc
+OBJECTS=$(SOURCES:.cc=.o)
+TARGET=assignment-1.elf
 
-$(EXECUTABLE): $(OBJECTS)
-	$(CC) -o $(EXECUTABLE) $(OBJECTS)
+all: $(SOURCES) $(TARGET)
 
-a1: $(EXECUTABLE) # For TAs.
+$(TARGET): $(OBJECTS) 
+	$(CC) $(LDFLAGS) $(OBJECTS) -o $@
+
+.cc.o:
+	$(CC) $(CFLAGS) $< -o $@
+
+a1: all # For TAs.
 
 clean:
 	-rm *.o *.elf
