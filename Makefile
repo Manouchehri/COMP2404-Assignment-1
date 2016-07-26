@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall
 LDFLAGS=
-SOURCES=main.cc
+SOURCES=main.cc interface.cc
 OBJECTS=$(SOURCES:.cc=.o)
 TARGET=assignment-1.elf
 
