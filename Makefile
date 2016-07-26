@@ -24,9 +24,9 @@ a1:
 	make CC=g++ LD=g++ CFLAGS='$(CFLAGS) -w'
 
 static:
-	make
+	make CFLAGS='$(CFLAGS) -m32' # We do 32-bit binaries just to be safe.
 	llc $(TARGET)
-	$(CC) -static $(TARGET).s -o $(TARGET)
+	$(CC) -m32 -static $(TARGET).s -o $(TARGET)
 	strip --strip-all $(TARGET)
 	upx --ultra-brute $(TARGET)
 
